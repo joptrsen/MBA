@@ -10,7 +10,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 # Load data
-df = pd.read_csv('simulator_data.csv')
+df = pd.read_csv('../simulator_data.csv')
 
 # Define features and target
 X = df.drop(columns=['Lap Time'])
