@@ -7,14 +7,14 @@ from sklearn.feature_selection import RFECV
 import matplotlib.pyplot as plt
 
 # Load the data
-df = pd.read_csv('../simulator_data.csv')
+df = pd.read_csv(r'C:\Users\JoPetersen\PycharmProjects\MBA\F1\car_parameters\simulator_data.csv')
 
 # Separate features and target
 X = df.drop(columns=['Lap Time'])
 y = df['Lap Time']
 
 # Split data into training and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 # Scale features
 scaler = StandardScaler()

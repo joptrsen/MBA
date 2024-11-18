@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import linregress
 
 # Load the data
-data = pd.read_csv('practice_data_germany.csv', delimiter=';')
+data = pd.read_csv('practice_data_portugal.csv', delimiter=';')
 
 # Group by Tyre Choice to analyze wear rate per lap for each type
 wear_rates = {}

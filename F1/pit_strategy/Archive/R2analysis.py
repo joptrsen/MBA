@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the data
-df = pd.read_csv('../practice_data_germany.csv')
+df = pd.read_csv('practice_data_germany.csv')
 
 # Split the single column into separate columns based on the semicolon delimiter
 df[['lap_after_pit', 'Fuel', 'Tyre Remaining', 'Tyre Choice', 'Lap Time']] = df['lap_after_pit;Fuel;Tyre Remaining;Tyre Choice;Lap Time'].str.split(';', expand=True)

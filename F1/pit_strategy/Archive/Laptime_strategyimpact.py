@@ -6,7 +6,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 
 # Load the data
-df = pd.read_csv('../practice_data_germany.csv')
+df = pd.read_csv('../practice_data_portugal.csv')
 
 # Split the single column into separate columns based on the semicolon delimiter
 df[['lap_after_pit', 'Fuel', 'Tyre Remaining', 'Tyre Choice', 'Lap Time']] = df['lap_after_pit;Fuel;Tyre Remaining;Tyre Choice;Lap Time'].str.split(';', expand=True)
@@ -24,11 +24,11 @@ X = df.drop(columns=['Lap Time'])
 y = df['Lap Time']
 
 # Polynomial Features
-poly = PolynomialFeatures(degree=1, include_bias=False)
+poly = PolynomialFeatures(degree=3, include_bias=False)
 X_poly = poly.fit_transform(X)
 
 # Split data
-X_train, X_test, y_train, y_test = train_test_split(X_poly, y, test_size=0.20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_poly, y, test_size=0.20, random_state=1)
 
 # Scale data
 scaler = StandardScaler()

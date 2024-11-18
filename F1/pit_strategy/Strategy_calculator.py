@@ -2,35 +2,38 @@ import numpy as np
 from itertools import product
 
 # Constants
-TOTAL_LAPS = 106
+TOTAL_LAPS = 99
 MAX_PIT_STOPS = 4
-MAX_FUEL_LOAD = 80
-MIN_FUEL_LOAD = 18
+MAX_FUEL_LOAD = 90
+MIN_FUEL_LOAD = 5
 PIT_STOP_TIME = 30  # in seconds
-MIN_FUEL_BEFORE_PIT = 0.1  # Minimum remaining fuel before each pit stop
+MIN_FUEL_BEFORE_PIT = 0.000005 # Minimum remaining fuel before each pit stop
+
 
 # Fuel and tire information
-FUEL_CONSUMPTION_PER_LAP = 1.9542174
-LAP_TIME_PENALTY_PER_FUEL_UNIT = 0.942887
+FUEL_CONSUMPTION_PER_LAP = 1.85255126000000558406
+LAP_TIME_PENALTY_PER_FUEL_UNIT = 0.04836403975254206095
 TIRE_WEAR_RATES = {
-    "Extra Soft": 10.986937667198813,
-    "Soft": 3.753997684110652,
-    "Medium": 2.9445815541313354,
-    "Hard": 2.3573406528817737
+    "Extra Soft": 3.86937876,
+    "Soft": 2.45789428861258,
+    "Medium": 2.129366282654135,
+    "Hard": 1.9197754332727273
 }
 TIRE_TIME_PENALTIES = {
     "Extra Soft": 0.0,
-    "Soft": 0.217923,
-    "Medium": 0.112155,
-    "Hard": 0.363062
+    "Soft": 0.7140333333,
+    "Medium": 0.5553165000,
+    "Hard": 1.0707195000
 }
 
 
 # Calculate stint lengths with a ±10% flexibility
 def calculate_stint_lengths(num_stints):
     mean_stint = TOTAL_LAPS / num_stints
-    min_stint = int(mean_stint * 0.6)
-    max_stint = int(mean_stint * 1.4)
+    min_stint = int(mean_stint * 0.3)
+    max_stint = int(mean_stint * 1.7)
+
+
 
     # Generate possible stint configurations
     stint_configs = []
